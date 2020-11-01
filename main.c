@@ -79,7 +79,7 @@ void update_ball(SDL_Surface *surface, object_t *ball, float gravity, float loop
             accelerate_object(ball, friction, ball->radius);
 
             // Check if the ball has a very low speedy. If so, it should stop bouncing
-            if (fabs(ball->speedy) <= 5) { // Five is a relatively low speed
+            if (fabs(ball->speedy) <= 1) { // Five is a relatively low speed
                 ball->speedy = 0;
             }
         }
