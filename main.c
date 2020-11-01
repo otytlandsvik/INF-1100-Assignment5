@@ -191,7 +191,7 @@ void bouncing_balls(SDL_Window *window)
         // Update and draw our ball list
         for (i = 0; i < list_size(ballList); i++) {
             ball = list_next(ballListIter);
-            if (ball == NULL) {
+            if (ball == NULL) { // Report error and quit if item we extract is NULL
                 printf("Iterator out of bounds\n");
                 return;
             }
