@@ -29,7 +29,7 @@ list_t *list_create(void)
         return NULL;
     }
     
-    // Initialize our list explicitly
+    // Initialize our list
     newListptr->head = NULL;
     newListptr->numitems = 0;
     

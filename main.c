@@ -191,6 +191,10 @@ void bouncing_balls(SDL_Window *window)
         // Update and draw our ball list
         for (i = 0; i < list_size(ballList); i++) {
             ball = list_next(ballListIter);
+            if (ball == NULL) {
+                printf("Iterator out of bounds\n");
+                return;
+            }
 
             if (ball->ttl <= 0) { // If ball has been still for 5 seconds, remove it
                 list_remove(ballList, ball);
