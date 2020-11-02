@@ -129,20 +129,13 @@ void bouncing_balls(SDL_Window *window)
     // Create a couple of ball (and teapot) objects and add them into the list
     int i;
     srand(time(NULL)); // Set the seed of rand
-    for (i = 0; i < rand() % 7 + 2; i++) { // Between 2 and 8 balls
+    for (i = 0; i < rand() % 10 + 10; i++) { // Between 2 and 8 balls
         // Create object
-        ball = create_object(surface, sphere_model, SPHERE_NUMTRIANGLES);
-        // Report error and quit if an object was not succesfully created
-        if (ball == NULL) { 
-            printf("Unable to allocate object\n");
-            return;
+        if ((SDL_GetPerformanceCounter() % 2) == 0) { // Create ball if even, teapot if odd. 50/50
+            ball = create_object(surface, sphere_model, SPHERE_NUMTRIANGLES);
+        } else {
+            ball = create_object(surface, teapot_model, TEAPOT_NUMTRIANGLES);
         }
-        // Add object to list
-        list_addlast(ballList, ball); // Add object to our list
-    }
-    for (i = 0; i < rand() % 7 + 2; i++) { // Between 2 and 8 teapots
-        // Create object
-        ball = create_object(surface, teapot_model, TEAPOT_NUMTRIANGLES);
         // Report error and quit if an object was not succesfully created
         if (ball == NULL) { 
             printf("Unable to allocate object\n");
