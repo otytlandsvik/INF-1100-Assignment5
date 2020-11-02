@@ -221,12 +221,6 @@ void bouncing_balls(SDL_Window *window)
 
         // Reset our iterator for later use
         list_resetiterator(ballListIter);
-
-        if (list_size(ballList) == 0) { // If the list is now empty
-            list_destroyiterator(ballListIter); // Free iterator
-            list_destroy(ballList); // Free list
-            done = 1; // Quit SDL
-        }
         
         // Calculate how long it took to draw everything
         drawTime = (SDL_GetTicks() - startTime);
