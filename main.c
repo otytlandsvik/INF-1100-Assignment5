@@ -199,8 +199,13 @@ void bouncing_balls(SDL_Window *window)
             if (ball->ttl <= 0) { // If ball has been still for 5 seconds, remove it
                 list_remove(ballList, ball);
                 destroy_object(ball);
-                // Create new ball
-                newball = create_object(surface, sphere_model, SPHERE_NUMTRIANGLES);
+                // Create new object
+                if ((SDL_GetTicks() % 2) == 0) { // Create ball if even, teapot if odd. 50/50
+                    newball = create_object(surface, sphere_model, SPHERE_NUMTRIANGLES);
+                } else {
+                    newball = create_object(surface, teapot_model, TEAPOT_NUMTRIANGLES);
+
+                }
                 // Report error and quit if an object was not succesfully created
                 if (newball == NULL) {
                     printf("Unable to allocate object\n");

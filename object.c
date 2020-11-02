@@ -33,7 +33,7 @@ object_t *create_object(SDL_Surface *surface, triangle_t *model, int numtriangle
     newObjectptr->surface = surface;
     newObjectptr->model = newModelArrayptr;
     newObjectptr->numtriangles = numtriangles;
-    // Also initialize some other useful properties
+    // Initialize the remaining values
     newObjectptr->tx = 100;
     newObjectptr->ty = 100;
     newObjectptr->ttl = 5000; // Time To Live, in milliseconds
@@ -79,7 +79,7 @@ void draw_object(object_t *object)
     int i;
     // Iterate through our model array, and move/rotate/scale and draw each triangle
     for (i = 0; i < object->numtriangles; i++) {
-        object->model[i].tx = (int)object->tx;
+        object->model[i].tx = (int)object->tx; // Cast from float to int before drawing
         object->model[i].ty = (int)object->ty;
         object->model[i].rotation = object->rotation;
         object->model[i].scale = object->scale;
