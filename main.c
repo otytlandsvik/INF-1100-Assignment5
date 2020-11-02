@@ -129,7 +129,7 @@ void bouncing_balls(SDL_Window *window)
     // Create a couple of ball (and teapot) objects and add them into the list
     int i;
     srand(time(NULL)); // Set the seed of rand
-    for (i = 0; i < rand() % 10 + 10; i++) { // Between 2 and 8 balls
+    for (i = 0; i < rand() % 10 + 11; i++) { // Between 10 and 20 objects
         // Create object
         if ((SDL_GetPerformanceCounter() % 2) == 0) { // Create ball if even, teapot if odd. 50/50
             ball = create_object(surface, sphere_model, SPHERE_NUMTRIANGLES);
