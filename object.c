@@ -58,6 +58,7 @@ object_t *create_object(SDL_Surface *surface, triangle_t *model, int numtriangle
     // we add a padding of 3 to ensure none of the object sticks out of the surface
     newObjectptr->radius = (xmax - xmin)/2 * newObjectptr->scale + 3;
 
+
     return newObjectptr;
 
 }
