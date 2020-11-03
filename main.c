@@ -79,7 +79,7 @@ void update_ball(SDL_Surface *surface, object_t *ball, float gravity, float loop
             accelerate_object(ball, friction, ball->radius);
 
             // Check if the ball has a very low speedy. If so, it should stop bouncing
-            if (fabs(ball->speedy) <= 1) { // Five is a relatively low speed
+            if (fabs(ball->speedy) <= 1) { 
                 ball->speedy = 0;
             }
         }
@@ -161,11 +161,12 @@ void bouncing_balls(SDL_Window *window)
     SDL_Event event;
 
     
-    // The amount of time to wait before drawing again, in milliseconds
-    float drawTime;
     // The time at the start of our loop, for calculating drawTime
     float startTime;
+    // The amount of time to wait before drawing again, in milliseconds
+    float drawTime;
 
+    // The main loop
     while (!done) {
         // The time it took for the previous loop, including SDL_Delay()
         float loopTime = SDL_GetTicks() - startTime;
